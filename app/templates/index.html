@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YouTube Cloud Backup</title>
+    <link href="../static/entireframework.min.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<div class="container">
+    <h1>YouTube Cloud Backup</h1>
+    {% if bucket_name %}
+      <h3>Uploading to {{ bucket_name }}</h3>
+      <p>Paste in the URL of the YouTube video you would like to upload to S3 into the box below</p>
+      <form action="/", method="post" id="upload_form">
+      <label><span class="addon">YouTube URL</span>
+          <input name="youtube-link" type="text" placeholder="https://www.youtube.com/watch?v=CNEuzhr7zQU"></label>
+      <button type="submit" class="btn btn-sm btn-b">Upload</button>
+      </form>
+    {% else %}
+          <p>Warning: No AWS bucket has been configured!</p>
+    {% endif %}
+</div>
+</body>
+</html>
